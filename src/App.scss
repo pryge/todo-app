@@ -1,7 +1,5 @@
-// 1. Імпорт змінних
 @import './styles/variables';
 
-// 2. Глобальні стилі
 * {
   margin: 0;
   padding: 0;
@@ -19,7 +17,6 @@ body {
   line-height: 1.5;
 }
 
-// 3. Глобальні заголовки
 h1, h2, h3, h4, h5, h6 {
   color: $color-text-primary;
   margin-bottom: 0.5rem;
@@ -30,7 +27,6 @@ p {
   margin-bottom: 1rem;
 }
 
-// 4. Посилання
 a {
   color: $color-primary;
   text-decoration: none;
@@ -40,7 +36,6 @@ a {
   }
 }
 
-// 5. Кнопки загальні стилі
 button {
   font-family: inherit;
   cursor: pointer;
@@ -54,33 +49,9 @@ button {
   }
 }
 
-// 6. Utility класи
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-
-.flex {
+.app {
+  min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  flex-direction: column;
 }
 
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-// 7. Адаптивність (приклад)
-@media (max-width: 768px) {
-  html {
-    font-size: 14px;
-  }
-
-  .container {
-    padding: 0 12px;
-  }
-}
