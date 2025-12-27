@@ -1,0 +1,86 @@
+// 1. Імпорт змінних
+@import './styles/variables';
+
+// 2. Глобальні стилі
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: $color-bg-light;
+  color: $color-text-primary;
+  line-height: 1.5;
+}
+
+// 3. Глобальні заголовки
+h1, h2, h3, h4, h5, h6 {
+  color: $color-text-primary;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  color: $color-text-secondary;
+  margin-bottom: 1rem;
+}
+
+// 4. Посилання
+a {
+  color: $color-primary;
+  text-decoration: none;
+
+  &:hover {
+    color: darken($color-primary, 10%);
+  }
+}
+
+// 5. Кнопки загальні стилі
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// 6. Utility класи
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// 7. Адаптивність (приклад)
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 0 12px;
+  }
+}

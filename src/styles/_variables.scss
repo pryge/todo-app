@@ -1,0 +1,16 @@
+/*Основні кнопки, активні іконки, акценти*/
+$color-primary: #49c5b6;
+/*кнопки другого рівня, важливі елементи іконки або підсвітка акцентів*/
+$color-secondary: #DF6C4F;
+/*фон сторінки, карточок тп*/
+$color-bg-light: #f5f6fa;
+/*текст на світлому фоні, темні блоки*/
+$color-bg-dark: #2f3640;
+/*основний контент, заголовки і тп*/
+$color-text-primary: #2f3640;
+/*підписи плейсхолдери*/
+$color-text-secondary: #636e72;
+/* placeholder (трохи світліший за $color-text-secondary) */
+$color-placeholder: lighten($color-text-secondary, 20%);
+/*Основні кнопки, активні іконки, акценти*/
+$color-border: #cfcfd0;
