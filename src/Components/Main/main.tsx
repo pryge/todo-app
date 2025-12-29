@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Todos from "../Todos/todos";
 import "./main.style.scss";
 import type { Todo } from "../../types/types";
@@ -10,6 +10,7 @@ type Props = {
 
 function Main({ searchQuery }: Props) {
   const { full } = getFormattedDate();
+  const [newTodoTitle, setNewTodoTitle] = useState("");
   const [todos, setTodos] = useState<Todo[]>([
     { id: 1, title: "Buy bread", completed: false, createdAt: full },
     { id: 2, title: "Buy onion", completed: false, createdAt: full },
@@ -40,18 +41,48 @@ function Main({ searchQuery }: Props) {
     );
   }
 
-  function onDelete(id: number) {
+  const onDelete = (id: number) => {
     setTodos((prev) => prev.filter((p) => p.id !== id));
   }
 
-  const visibleTodos = todos.filter((todo) =>
-    todo.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const handleAdd = () => {
+    const trimmed = newTodoTitle.trim();
+    if (!trimmed) {
+      return;
+    }
+
+    const lastId = todos.length > 0 ? todos[todos.length - 1].id : 0;
+
+    const newTodo: Todo = {
+      id: lastId + 1,
+      title: trimmed,
+      completed: false,
+      createdAt: full,
+    };
+
+    setTodos((prev) => [newTodo, ...prev]);
+    setNewTodoTitle("");
+  };
+
+  const visibleTodos = useMemo(() => {
+    return todos.filter((todo) =>
+      todo.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }, [todos, searchQuery]);
 
   return (
     <div className="main">
       <div className="main__hello">Hello, Oleh!</div>
-      <div className="main__text">Your todo`s on today</div>
+      <div className="header__addButton">
+        <input
+          type="text"
+          placeholder="Add new todo..."
+          value={newTodoTitle}
+          onChange={(e) => setNewTodoTitle(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && handleAdd()}
+        />
+        <button onClick={handleAdd}>Add</button>
+      </div>
       {visibleTodos.length === 0 ? (
         <span>There no todos :(</span>
       ) : (
