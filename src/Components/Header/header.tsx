@@ -1,9 +1,14 @@
 import searchIcon from "../../assets/icons/magnifying-glass-light.svg";
-import logoIcon from "../../assets/icons/evernote.png"
+import logoIcon from "../../assets/icons/evernote.png";
 import { getFormattedDate } from "../../utils/utils";
-import  "./header.style.scss";
+import "./header.style.scss";
 
-function Header() {
+type Props = {
+  searchQuery: string;
+  onSearchChange: (value: string) => void;
+};
+
+function Header({ searchQuery, onSearchChange }: Props) {
   const { day, full } = getFormattedDate();
 
   return (
@@ -12,7 +17,13 @@ function Header() {
         <img src={logoIcon} />
       </div>
       <div className="header__search">
-        <input type="text" className="header__search--input" placeholder="Search your todo here..."></input>
+        <input
+          type="text"
+          className="header__search--input"
+          placeholder="Search your todo here..."
+          value={searchQuery}
+          onChange={(e) => onSearchChange(e.target.value)}
+        ></input>
         <button className="header__search--button">
           <img src={searchIcon} />
         </button>

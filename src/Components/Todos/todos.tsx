@@ -1,5 +1,6 @@
 import type { Todo } from "../../types/types"
 import TodoItem from "../TodoItem/todoItem";
+import './todos.style.scss'
 
 type Props = {
   todos: Todo[];

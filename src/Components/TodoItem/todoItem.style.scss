@@ -29,7 +29,6 @@
   &__checkmark {
     width: 20px;
     height: 20px;
-    border: 1px solid $color-bg-dark;
     background-color: $color-bg-light;
     border-radius: 50%;
     display: flex;
@@ -37,6 +36,10 @@
     justify-content: center;
     transition: background-color 0.3s ease, border-color 0.3s ease,
       transform 0.2s ease;
+
+    &:hover{
+      transform: scale(1.1);
+    }
   }
 
   &__checkbox input:checked + &__checkmark {
@@ -48,7 +51,7 @@
     content: "";
     width: 10px;
     height: 10px;
-    background-color: $color-bg-light;
+    background-color: $color-bg-dark;
     border-radius: 50%;
   }
 

@@ -9,4 +9,12 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  &__hello {
+    font-size: 40px;
+  }
+
+  &__text {
+    margin-bottom: 20px;
+  }
 }
